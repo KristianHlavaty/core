@@ -13,7 +13,8 @@ SRCS = ft_isalpha.c \
 		ft_strlcat.c \
 		ft_toupper.c \
 		ft_tolower.c \
-		ft_strchr.c
+		ft_strchr.c \
+		ft_strrchr.c
 OBJS = ${SRCS:.c=.o}
 OBJSB = ${SRCSB:.c=.o}
 LIBC = ar rcs
@@ -41,3 +42,6 @@ fclean: clean
 re: fclean all
 
 .PHONY : all bonus clean fclean re
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) 
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
