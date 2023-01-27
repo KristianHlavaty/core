@@ -18,6 +18,7 @@ SRCS = ft_isalpha.c \
 		ft_strncmp.c \
 		ft_memchr.c \
 		ft_memcmp.c \
+		ft_strnstr.c
 OBJS = ${SRCS:.c=.o}
 OBJSB = ${SRCSB:.c=.o}
 LIBC = ar rcs
