@@ -6,7 +6,7 @@
 /*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 19:01:38 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/01/28 19:40:08 by khlavaty         ###   ########.fr       */
+/*   Updated: 2023/02/03 16:08:23 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,13 @@ char	*ft_strdup(const char *s)
 	i = 0;
 	while (s[i])
 		i++;
-	s2 = (char *) malloc(sizeof(char) * (i + 1));
+	s2 = (char *) malloc((i + 1) * sizeof(char));
 	if (s2 == 0)
 		return (NULL);
-	i = 0;
-	while (s[i])
+	while (i >= 0)
 	{
 		s2[i] = s[i];
-		i++;
+		i--;
 	}
-	s2[i] = '\0';
 	return (s2);
 }
