@@ -3,76 +3,107 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kryxaurus <kryxaurus@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 14:48:47 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/01/31 18:30:10 by khlavaty         ###   ########.fr       */
+/*   Updated: 2023/02/06 04:30:31 by kryxaurus        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**fts_freeall(char **res, int k)
+static int	fts_wordcount(char const *s, char c)
 {
-	while (k-- > 0)
-		free(res[k]);
-	free(res);
-	return (NULL);
-}
-
-static int	fts_countwords(const char *s, char c)
-{
-	int	i;
-	int	count;
+	size_t	i;
+	int		wordcount;
 
 	i = 0;
-	count = 0;
+	wordcount = 0;
 	while (s[i])
 	{
-		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
-			count++;
-		i++;
+		while (s[i] == c)
+			i++;
+		if (s[i] != '\0')
+			wordcount++;
+		while (s[i] && (s[i] != c))
+			i++;
 	}
-	return (count);
+	return (wordcount);
 }
 
-static int	fts_countchars(const char *s, char c, int i)
+static unsigned int	fts_strxcpy(char *dest, const char *src, unsigned int size)
 {
-	int	count;
+	unsigned int	i;
+	unsigned int	x;
 
-	count = 0;
-	while (s[i] && s[i] != c)
+	x = 0;
+	while (src[x])
+		x++;
+	i = 0;
+	if (size != 0)
 	{
-		count++;
-		i++;
+		while ((i < size - 1) && src[i] != '\0')
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
 	}
-	return (count);
+	return (x);
+}
+
+static char	*fts_strndup(const char *s, size_t n)
+{
+	char	*str;
+
+	str = (char *)malloc(sizeof(char) * (n + 1));
+	if (str == NULL)
+		return (NULL);
+	fts_strxcpy(str, s, n + 1);
+	return (str);
+}
+
+static char **fts_cutsplit(char const *s, char c)
+{
+	char	**string;
+	int		i;
+	int		j;
+	int		k;
+
+	i = 0;
+	j = 0;
+	string = (char **)malloc(sizeof(char *) * (fts_wordcount(s, c) + 1));
+	if (string == NULL)
+		return (NULL);
+	while (s[i])
+	{
+		while (s[i] == c)
+			i++;
+		k = i;
+		while (s[i] && s[i] != c)
+			i++;
+		if (i > k)
+		{
+			string[j] = fts_strndup(s + k, i - k);
+			j++;
+		}
+	}
+	string[j] = NULL;
+	return (string);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**res;
-	int		vars[3];
+	char	**string;
 
-	if (s == 0)
-		return (0);
-	res = malloc(sizeof(char *) * (fts_countwords(s, c) + 1));
-	if (!res)
-		return (NULL);
-	vars[0] = -1;
-	vars[2] = 0;
-	while (++vars[0] < fts_countwords(s, c))
+	if (!s || !*s)
 	{
-		vars[1] = 0;
-		res[vars[0]] = malloc(fts_countchars(s, c, vars[2]) + 1);
-		if (!res[vars[0]])
-			return (fts_freeall(res, vars[0]));
-		while (s[vars[2]] != '\0' && s[vars[2]] == c)
-			vars[2]++;
-		while (s[vars[2]] != c && s[vars[2]] != '\0')
-			res[vars[0]][vars[1]++] = s[vars[2]++];
-		res[vars[0]][vars[1]] = '\0';
+		string = (char **)malloc(sizeof(char *));
+		if (string == NULL)
+			return (NULL);
+		string[0] = NULL;
+		return (string);
 	}
-	res[vars[0]] = NULL;
-	return (res);
+	string = fts_cutsplit(s, c);
+	return (string);
 }
