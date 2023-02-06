@@ -30,7 +30,10 @@ SRCS = ft_isalpha.c \
 		ft_strmapi.c \
 		ft_striteri.c \
 		ft_putchar_fd.c \
-		ft_putstr_fd.c
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c
+SRCSB = ft_lstnew.c
 OBJS = ${SRCS:.c=.o}
 OBJSB = ${SRCSB:.c=.o}
 LIBC = ar rcs
@@ -59,5 +62,5 @@ re: fclean all
 
 .PHONY : all bonus clean fclean re
 so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) 
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(SRCSB)
+	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJSB)
