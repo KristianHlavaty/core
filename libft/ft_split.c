@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kryxaurus <kryxaurus@student.42.fr>        +#+  +:+       +#+        */
+/*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 14:48:47 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/02/06 04:30:31 by kryxaurus        ###   ########.fr       */
+/*   Updated: 2023/02/06 15:25:56 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static char	*fts_strndup(const char *s, size_t n)
 	return (str);
 }
 
-static char **fts_cutsplit(char const *s, char c)
+static char	**fts_cutsplit(char const *s, char c)
 {
 	char	**string;
 	int		i;

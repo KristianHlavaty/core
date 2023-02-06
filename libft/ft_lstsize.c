@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kryxaurus <kryxaurus@student.42.fr>        +#+  +:+       +#+        */
+/*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 03:34:29 by kryxaurus         #+#    #+#             */
-/*   Updated: 2023/02/06 04:32:35 by kryxaurus        ###   ########.fr       */
+/*   Updated: 2023/02/06 15:25:14 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	int		i;
 	t_list	*node;
 
 	i = 0;

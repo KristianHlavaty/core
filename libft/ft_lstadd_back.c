@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kryxaurus <kryxaurus@student.42.fr>        +#+  +:+       +#+        */
+/*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 03:51:19 by kryxaurus         #+#    #+#             */
-/*   Updated: 2023/02/06 04:32:28 by kryxaurus        ###   ########.fr       */
+/*   Updated: 2023/02/06 15:26:12 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*node;
 
-	if(!*lst)
+	if (!*lst)
 	{
 		*lst = new;
 	}
