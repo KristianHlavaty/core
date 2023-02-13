@@ -6,18 +6,18 @@
 /*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 21:59:26 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/02/13 21:42:24 by khlavaty         ###   ########.fr       */
+/*   Updated: 2023/02/13 22:43:33 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (s[i] != '\0')
 	{
 		i++;
 	}
@@ -26,52 +26,51 @@ size_t	ft_strlen(const char *str)
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char		*last;
-	const char	*thisstr;
+	int		i;
+	char	*str;
 
-	last = NULL;
-	c = c % 128;
-	thisstr = s;
-	while (*thisstr != '\0')
+	if (s == NULL)
+		return (NULL);
+	str = (char *) s;
+	i = 0;
+	if (c == '\0')
+		return (str + ft_strlen(str));
+	if (*s == '\0')
+		return (0);
+	while (s[i] != '\0')
 	{
-		if (*thisstr == (char)c)
-		{
-			last = (char *)thisstr;
-		}
-		thisstr++;
+		if (s[i] % 256 == c % 256)
+			return (str);
+		str++;
+		i++;
 	}
-	if (*thisstr == (char)c)
-	{
-		last = (char *)thisstr;
-	}
-	return (last);
+	return (0);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char const *s2)
 {
-	char	*str;
-	size_t	lens1;
-	size_t	lens2;
-	size_t	i;
+	char	*out;
+	int		i;
+	int		x;
 
-	if (!s1 || !s2)
-		return (NULL);
-	lens1 = ft_strlen(s1);
-	lens2 = ft_strlen(s2);
-	str = (char *)malloc(lens1 + lens2 + 1);
-	if (!str)
-		return (NULL);
+	x = 0;
 	i = 0;
-	while (i < lens1)
+	if (!s1)
 	{
-		str[i] = s1[i];
-		i++;
+		s1 = (char *)malloc(1 * sizeof(char));
+		s1[0] = '\0';
 	}
-	while ((i - lens1) < lens2)
-	{
-		str[i] = s2[i - lens1];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
+	if (!s2)
+		return (NULL);
+	out = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!out)
+		return (0);
+	while (s1[x] != '\0')
+		out[i++] = s1[x++];
+	x = 0;
+	while (s2[x] != '\0')
+		out[i++] = s2[x++];
+	out[i] = '\0';
+	free(s1);
+	return (out);
 }
