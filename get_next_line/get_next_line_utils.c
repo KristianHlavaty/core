@@ -6,25 +6,25 @@
 /*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 21:59:26 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/02/13 22:43:33 by khlavaty         ###   ########.fr       */
+/*   Updated: 2023/02/16 16:55:24 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 
 	i = 0;
-	while (s[i] != '\0')
+	while (str[i])
 	{
 		i++;
 	}
 	return (i);
 }
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int		i;
 	char	*str;
@@ -39,10 +39,10 @@ char	*ft_strrchr(const char *s, int c)
 		return (0);
 	while (s[i] != '\0')
 	{
-		if (s[i] % 256 == c % 256)
+		if ((unsigned char)s[i] == (unsigned char)c)
 			return (str);
-		str++;
 		i++;
+		str++;
 	}
 	return (0);
 }
@@ -51,10 +51,10 @@ char	*ft_strjoin(char *s1, char const *s2)
 {
 	char	*out;
 	int		i;
-	int		x;
+	int		j;
 
-	x = 0;
 	i = 0;
+	j = 0;
 	if (!s1)
 	{
 		s1 = (char *)malloc(1 * sizeof(char));
@@ -65,11 +65,11 @@ char	*ft_strjoin(char *s1, char const *s2)
 	out = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!out)
 		return (0);
-	while (s1[x] != '\0')
-		out[i++] = s1[x++];
-	x = 0;
-	while (s2[x] != '\0')
-		out[i++] = s2[x++];
+	while (s1[j] != '\0')
+		out[i++] = s1[j++];
+	j = 0;
+	while (s2[j] != '\0')
+		out[i++] = s2[j++];
 	out[i] = '\0';
 	free(s1);
 	return (out);

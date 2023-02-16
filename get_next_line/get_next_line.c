@@ -6,7 +6,7 @@
 /*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 21:59:29 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/02/13 22:14:40 by khlavaty         ###   ########.fr       */
+/*   Updated: 2023/02/16 13:58:21 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*ft_append(int fd, char *str)
 	if (!buffer)
 		return (0);
 	readen = 1;
-	while (readen > 0 && !ft_strrchr(str, '\n'))
+	while (readen > 0 && !ft_strchr(str, '\n'))
 	{
 		readen = read(fd, buffer, BUFFER_SIZE);
 		if (readen == -1)
