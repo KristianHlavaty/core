@@ -6,7 +6,7 @@
 /*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 21:59:21 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/02/16 13:58:26 by khlavaty         ###   ########.fr       */
+/*   Updated: 2023/02/17 22:08:48 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 4242
+#  define BUFFER_SIZE 4096
 # endif
 
 # include <stdio.h>

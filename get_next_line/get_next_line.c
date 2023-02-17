@@ -6,20 +6,20 @@
 /*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 21:59:29 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/02/17 19:43:05 by khlavaty         ###   ########.fr       */
+/*   Updated: 2023/02/17 22:52:07 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_store(char *str)
+static char	*ft_store(char *str)
 {
-	char	*rest;
+	char	*remaining_chars;
 	int		i;
-	int		x;
+	int		j;
 
 	i = 0;
-	x = 0;
+	j = 0;
 	while (str[i] && str[i] != '\n')
 		i++;
 	if (!str[i])
@@ -27,67 +27,67 @@ char	*ft_store(char *str)
 		free(str);
 		return (0);
 	}
-	rest = (char *)malloc(ft_strlen(str) + 1 - i);
-	if (!rest)
+	remaining_chars = (char *)malloc(ft_strlen(str) + 1 - i);
+	if (!remaining_chars)
 		return (0);
 	i++;
 	while (str[i])
-		rest[x++] = str[i++];
-	rest[x] = '\0';
+		remaining_chars[j++] = str[i++];
+	remaining_chars[j] = '\0';
 	free(str);
-	return (rest);
+	return (remaining_chars);
 }
 
-char	*ft_append(int fd, char *str)
+static char	*ft_append(int fd, char *str)
 {
-	int		readen;
+	int		bytes_read;
 	char	*buffer;
 
 	buffer = (char *)malloc(BUFFER_SIZE + 1);
 	if (!buffer)
 		return (0);
-	readen = 1;
-	while (readen > 0 && !ft_strchr(str, '\n'))
+	bytes_read = 1;
+	while (bytes_read > 0 && !ft_strchr(str, '\n'))
 	{
-		readen = read(fd, buffer, BUFFER_SIZE);
-		if (readen == -1)
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		if (bytes_read == -1)
 		{
 			free(buffer);
 			return (0);
 		}
-		buffer[readen] = '\0';
+		buffer[bytes_read] = '\0';
 		str = ft_strjoin(str, buffer);
 	}
 	free(buffer);
 	return (str);
 }
 
-char	*ft_get_line(char *str)
+static char	*ft_get_line(char *str)
 {
 	int		i;
-	char	*out;
+	char	*line;
 
 	i = 0;
 	if (!str[i])
 		return (0);
 	while (str[i] && str[i] != '\n')
 		i++;
-	out = (char *)malloc(i + 2);
-	if (!out)
+	line = (char *)malloc(i + 2);
+	if (!line)
 		return (0);
 	i = 0;
 	while (str[i] && str[i] != '\n')
 	{
-		out[i] = str[i];
+		line[i] = str[i];
 		i++;
 	}
 	if (str[i] == '\n')
 	{
-		out[i] = str[i];
+		line[i] = str[i];
 		i++;
 	}
-	out[i] = '\0';
-	return (out);
+	line[i] = '\0';
+	return (line);
 }
 
 char	*get_next_line(int fd)
