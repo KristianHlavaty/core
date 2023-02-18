@@ -6,11 +6,11 @@
 /*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 22:05:54 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/02/18 18:00:51 by khlavaty         ###   ########.fr       */
+/*   Updated: 2023/02/18 21:28:10 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *str)
 {
