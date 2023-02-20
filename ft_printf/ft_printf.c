@@ -6,8 +6,13 @@
 /*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:12:11 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/02/20 18:33:52 by khlavaty         ###   ########.fr       */
+/*   Updated: 2023/02/20 18:40:51 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_printf(const char *input, ...)
+{
+	;
+}
