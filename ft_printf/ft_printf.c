@@ -6,7 +6,7 @@
 /*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:12:11 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/02/25 20:46:47 by khlavaty         ###   ########.fr       */
+/*   Updated: 2023/02/25 21:27:30 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	fts_check_formt(va_list args, char formt)
 {
 	if (formt == 'c')
 		return (ft_putchar(va_arg(args, int)));
+	else if (formt == 's')
+		return (ft_putstring(va_arg(args, char *)));
 	return (0);
 }	
 
@@ -24,7 +26,6 @@ int	ft_printf(const char *input, ...)
 	va_list	args;
 	int		len;
 	int		i;
-
 
 	i = 0;
 	len = 0;
