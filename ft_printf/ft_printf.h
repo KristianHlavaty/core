@@ -6,7 +6,7 @@
 /*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:11:09 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/02/20 18:37:31 by khlavaty         ###   ########.fr       */
+/*   Updated: 2023/02/25 16:18:17 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdarg.h>
 
-int	ft_printf(const char *input, ...);
+int		ft_printf(const char *input, ...);
+void	ft_putchar_fd(char c, int fd);
 
 #endif
