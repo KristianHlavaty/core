@@ -6,7 +6,7 @@
 /*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:12:33 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/02/25 21:37:04 by khlavaty         ###   ########.fr       */
+/*   Updated: 2023/02/25 23:21:59 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,36 @@ int	ft_putstring(char *str)
 	{
 		write (1, &str[i], 1);
 		i++;
+	}
+	return (i);
+}
+
+int	ft_putnbr(int n)
+{
+	int		i;
+	char	c;
+
+	c = 0;
+	i = 0;
+	if (n == -2147483648)
+	{
+		i += ft_putstring("-2147483648");
+		return (11);
+	}
+	if (n < 0)
+	{
+		i += ft_putchar('-');
+		n *= -1;
+	}
+	if (n >= 10)
+	{
+		i += ft_putnbr(n / 10);
+		i += ft_putnbr(n % 10);
+	}
+	if (n < 10 && n != -2147483648)
+	{
+		c = n + '0';
+		i += ft_putchar(c);
 	}
 	return (i);
 }

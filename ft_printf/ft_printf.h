@@ -6,7 +6,7 @@
 /*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:11:09 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/02/25 22:11:39 by khlavaty         ###   ########.fr       */
+/*   Updated: 2023/02/25 23:16:17 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ int		ft_printf(const char *input, ...);
 int		ft_putchar(char c);
 int		fts_check_formt(va_list args, char formt);
 int		ft_putstring(char *str);
+int		ft_putnbr(int n);
 
 #endif
