@@ -6,13 +6,13 @@
 /*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:12:33 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/02/23 17:49:15 by khlavaty         ###   ########.fr       */
+/*   Updated: 2023/02/25 20:44:32 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar(char c)
 {
-	write(fd, &c, 1);
+	return (write(1, &c, 1));
 }
