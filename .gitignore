@@ -4,3 +4,4 @@ gnlTester
 42test-gnl-station-2022
 ft_printf/printfTester
 ft_printf/ft_printf_tester
+.gitignore
