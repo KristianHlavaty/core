@@ -6,7 +6,7 @@
 /*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:12:33 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/02/25 23:21:59 by khlavaty         ###   ########.fr       */
+/*   Updated: 2023/02/26 18:24:26 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,25 @@ int	ft_putnbr(int n)
 		i += ft_putnbr(n % 10);
 	}
 	if (n < 10 && n != -2147483648)
+	{
+		c = n + '0';
+		i += ft_putchar(c);
+	}
+	return (i);
+}
+
+int	ft_putnbrunsig(unsigned int n)
+{
+	char	c;
+	int		i;
+
+	i = 0;
+	if (n >= 10)
+	{
+		i += ft_putnbrunsig(n / 10);
+		i += ft_putnbrunsig(n % 10);
+	}
+	if (n < 10)
 	{
 		c = n + '0';
 		i += ft_putchar(c);
