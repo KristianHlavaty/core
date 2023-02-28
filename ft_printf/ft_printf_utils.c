@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kryxaurus <kryxaurus@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:12:33 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/02/27 18:35:22 by khlavaty         ###   ########.fr       */
+/*   Updated: 2023/03/01 00:44:32 by kryxaurus        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	ft_putnbrunsig(unsigned int n)
 	return (i);
 }
 
-int	ft_putbase(int n, char *base, int base_len)
+int	ft_putbase(long n, char *base, int base_len)
 {
 	int	i;
 
@@ -112,7 +112,7 @@ int	ft_putbase(int n, char *base, int base_len)
 	return (i);
 }
 
-int	ft_putnbrbase(int n, char *base)
+int	ft_putnbrbase(long n, char *base)
 {
 	int	i;
 	int	base_len;
@@ -123,10 +123,54 @@ int	ft_putnbrbase(int n, char *base)
 	return (i);
 }
 
-int	ft_puthex(unsigned int n, char formt)
+int	ft_puthex(long n, char formt)
 {
 	if (formt == 'x')
 		return (ft_putnbrbase(n, "0123456789abcdef"));
 	else
 		return (ft_putnbrbase(n, "0123456789ABCDEF"));
+}
+
+int	ft_mem(char *mem_c, unsigned long mem)
+{
+	int	i;
+
+	i = 0;
+	while (mem > 0)
+	{
+		mem_c[i] = mem % 16;
+		if (mem_c[i] < 10)
+			mem_c[i] += '0';
+		else
+			mem_c[i] += 87;
+		mem = mem / 16;
+		i++;
+	}
+	mem_c[i] = 'x';
+	mem_c[i + 1] = '0';
+	i++;
+	return (i);
+}
+
+int	ft_putmemory(unsigned long mem)
+{
+	char	mem_c[20];
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	if (mem == 0)
+	{
+		ft_putstring("(nil)");
+		return (5);
+	}
+	i = ft_mem(&mem_c[0], mem);
+	while (i >= 0)
+	{
+		ft_putchar(mem_c[i]);
+		j++;
+		i--;
+	}
+	return (j);
 }

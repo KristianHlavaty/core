@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kryxaurus <kryxaurus@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:11:09 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/02/27 18:20:28 by khlavaty         ###   ########.fr       */
+/*   Updated: 2023/03/01 00:34:13 by kryxaurus        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ int		fts_check_formt(va_list args, char formt);
 int		ft_putstring(char *str);
 int		ft_putnbr(int n);
 int		ft_putnbrunsig(unsigned int n);
-int		ft_puthex(unsigned int n, char formt);
+int		ft_puthex(long n, char formt);
 size_t	ft_strlen(const char *str);
-int		ft_putbase(int n, char *base, int base_len);
-int		ft_putnbrbase(int n, char *base);
+int		ft_putbase(long n, char *base, int base_len);
+int		ft_putnbrbase(long n, char *base);
+int		ft_mem(char *mem_c, unsigned long mem);
+int		ft_putmemory(unsigned long mem);
 
 #endif

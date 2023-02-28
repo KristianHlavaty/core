@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kryxaurus <kryxaurus@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:12:11 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/02/27 18:32:15 by khlavaty         ###   ########.fr       */
+/*   Updated: 2023/03/01 00:32:37 by kryxaurus        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+// Pointer is a data type and the purest form of it in C is void *.
 int	fts_check_formt(va_list args, char formt)
 {
 	if (formt == 'c')
@@ -22,8 +23,12 @@ int	fts_check_formt(va_list args, char formt)
 		return (ft_putnbr(va_arg(args, int)));
 	else if (formt == 'u')
 		return (ft_putnbrunsig(va_arg(args, unsigned int)));
-	else if (formt == 'x')
-		return (ft_puthex(va_arg(args, unsigned int), formt));
+	else if (formt == 'x' || formt == 'X')
+		return (ft_puthex(va_arg(args, long), formt));
+	else if (formt == '%')
+		return (ft_putchar('%'));
+	else if (formt == 'p')
+		return (ft_putmemory((unsigned long)va_arg(args, void *)));
 	return (0);
 }	
 
