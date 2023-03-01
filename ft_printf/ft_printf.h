@@ -6,7 +6,7 @@
 /*   By: kryxaurus <kryxaurus@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:11:09 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/03/01 00:34:13 by kryxaurus        ###   ########.fr       */
+/*   Updated: 2023/03/01 01:00:58 by kryxaurus        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_puthex(long n, char formt);
 size_t	ft_strlen(const char *str);
 int		ft_putbase(long n, char *base, int base_len);
 int		ft_putnbrbase(long n, char *base);
-int		ft_mem(char *mem_c, unsigned long mem);
-int		ft_putmemory(unsigned long mem);
+int		ft_mem(char *mem_c, uintptr_t mem);
+int		ft_putmemory(uintptr_t mem);
 
 #endif

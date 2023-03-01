@@ -6,7 +6,7 @@
 /*   By: kryxaurus <kryxaurus@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:12:33 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/03/01 00:44:32 by kryxaurus        ###   ########.fr       */
+/*   Updated: 2023/03/01 01:00:53 by kryxaurus        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ int	ft_puthex(long n, char formt)
 		return (ft_putnbrbase(n, "0123456789ABCDEF"));
 }
 
-int	ft_mem(char *mem_c, unsigned long mem)
+int	ft_mem(char *mem_c, uintptr_t mem)
 {
 	int	i;
 
@@ -152,7 +152,7 @@ int	ft_mem(char *mem_c, unsigned long mem)
 	return (i);
 }
 
-int	ft_putmemory(unsigned long mem)
+int	ft_putmemory(uintptr_t mem)
 {
 	char	mem_c[20];
 	int		i;

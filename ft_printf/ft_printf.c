@@ -6,7 +6,7 @@
 /*   By: kryxaurus <kryxaurus@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:12:11 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/03/01 00:32:37 by kryxaurus        ###   ########.fr       */
+/*   Updated: 2023/03/01 01:00:56 by kryxaurus        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	fts_check_formt(va_list args, char formt)
 	else if (formt == '%')
 		return (ft_putchar('%'));
 	else if (formt == 'p')
-		return (ft_putmemory((unsigned long)va_arg(args, void *)));
+		return (ft_putmemory((unsigned long)va_arg(args, uintptr_t)));
 	return (0);
 }	
 
