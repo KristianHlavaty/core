@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kryxaurus <kryxaurus@student.42.fr>        +#+  +:+       +#+        */
+/*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:12:33 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/03/01 01:00:53 by kryxaurus        ###   ########.fr       */
+/*   Updated: 2023/03/01 16:08:05 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,17 +93,11 @@ int	ft_putnbrunsig(unsigned int n)
 	return (i);
 }
 
-int	ft_putbase(long n, char *base, int base_len)
+int	ft_putbase(unsigned long long n, char *base, int base_len)
 {
 	int	i;
 
 	i = 1;
-	if (n < 0)
-	{
-		ft_putchar('-');
-		i++;
-		n = n * (-1);
-	}
 	if (n / base_len > 0)
 	{
 		i = i + ft_putbase(n / base_len, base, base_len);
@@ -112,7 +106,7 @@ int	ft_putbase(long n, char *base, int base_len)
 	return (i);
 }
 
-int	ft_putnbrbase(long n, char *base)
+int	ft_putnbrbase(unsigned long long n, char *base)
 {
 	int	i;
 	int	base_len;
@@ -123,7 +117,7 @@ int	ft_putnbrbase(long n, char *base)
 	return (i);
 }
 
-int	ft_puthex(long n, char formt)
+int	ft_puthex(unsigned long long n, char formt)
 {
 	if (formt == 'x')
 		return (ft_putnbrbase(n, "0123456789abcdef"));

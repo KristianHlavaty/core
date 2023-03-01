@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kryxaurus <kryxaurus@student.42.fr>        +#+  +:+       +#+        */
+/*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:12:11 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/03/01 01:00:56 by kryxaurus        ###   ########.fr       */
+/*   Updated: 2023/03/01 16:10:27 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	fts_check_formt(va_list args, char formt)
 	else if (formt == 'u')
 		return (ft_putnbrunsig(va_arg(args, unsigned int)));
 	else if (formt == 'x' || formt == 'X')
-		return (ft_puthex(va_arg(args, long), formt));
+		return (ft_puthex(va_arg(args, unsigned int), formt));
 	else if (formt == '%')
 		return (ft_putchar('%'));
 	else if (formt == 'p')
