@@ -6,7 +6,7 @@
 /*   By: khlavaty <khlavaty@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:12:11 by khlavaty          #+#    #+#             */
-/*   Updated: 2023/03/01 16:10:27 by khlavaty         ###   ########.fr       */
+/*   Updated: 2023/03/04 20:54:55 by khlavaty         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	fts_check_formt(va_list args, char formt)
 	else if (formt == 's')
 		return (ft_putstring(va_arg(args, char *)));
 	else if (formt == 'i' || formt == 'd')
-		return (ft_putnbr(va_arg(args, int)));
+		return (ft_putnbr(va_arg(args, int), 0));
 	else if (formt == 'u')
 		return (ft_putnbrunsig(va_arg(args, unsigned int)));
 	else if (formt == 'x' || formt == 'X')
